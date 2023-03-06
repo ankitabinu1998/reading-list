@@ -1,22 +1,20 @@
-import { useState } from "react"
+import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 export default function BookCreate (props) {
     const [title,setTitle] = useState('');
-    const {setBooksList, booksList} = props;
+    const {createBook} = props;
     const onBookSubmit = (event) => {
         event.preventDefault();
+        createBook(title);
         setTitle('');
-        const book = {
-            id: booksList.length ? booksList[booksList.length - 1].id + 1 : 1,
-            title: title
-        };
-        setBooksList([...booksList,book]);
     }
     return (
         <div>
             <h1>Book Create Form</h1>
             <form onSubmit={onBookSubmit}>
-                <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)}/>
-                <button type="submit">Submit</button>
+                <Form.Control className="mb-2" type="text" value={title} onChange={(e)=>setTitle(e.target.value)}/>
+                <Button type="submit">Submit</Button>
             </form>
         </div>
     )

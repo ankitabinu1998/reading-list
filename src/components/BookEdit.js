@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
+
 export default function BookEdit (props) {
     const {setBooksList,book,booksList} = props;
     const [isEdit,setIsEdit] = useState(false);
@@ -20,16 +23,17 @@ export default function BookEdit (props) {
     }
     const onDeleteBook = () => {
         setBooksList(booksList.filter(bookInList => bookInList.id !== book.id));
+        setIsEdit(false);
     }
 
     return (
         <div>
-            <button onClick={onEditBook}>Edit</button>
-            <button onClick={onDeleteBook}>Delete</button>
+            <Button className="me-1" variant="secondary" onClick={onEditBook}><i className="icon-edit"></i></Button>
+            <Button variant="light" onClick={onDeleteBook}>x</Button>
             {isEdit &&
                 <form onSubmit={onSubmitNewTitle}>
-                    <input type="text" value={newTitle} onChange={(e)=>setNewTitle(e.target.value)}/>
-                    <button type="submit">Submit</button>
+                    <Form.Control className="mb-2 mt-2"  type="text" value={newTitle} onChange={(e)=>setNewTitle(e.target.value)}/>
+                    <Button type="submit">Save</Button>
                 </form>
             }
         </div>
