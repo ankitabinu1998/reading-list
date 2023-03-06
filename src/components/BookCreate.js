@@ -16,6 +16,7 @@ export default function BookCreate (props) {
             <h1>Book Create Form</h1>
             <form onSubmit={onBookSubmit}>
                 <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)}/>
+                <button type="submit">Submit</button>
             </form>
         </div>
     )

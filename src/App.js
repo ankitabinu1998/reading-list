@@ -5,7 +5,7 @@ function App() {
   const [booksList,setBooksList] = useState([]);
   return (
     <div>
-      <BookList booksList={booksList}/>
+      <BookList booksList={booksList} setBooksList={setBooksList}/>
       <BookCreate setBooksList={setBooksList} booksList={booksList}/>
     </div>
   );
