@@ -43,8 +43,8 @@ export default function BookShow (props) {
             )
     }
     return (
-        <Card style={{ width: '20rem' }}>
-            <Card.Img variant="top" src="https://media.istockphoto.com/id/1392740267/vector/open-book-line-art.jpg?s=612x612&w=0&k=20&c=spk1njg8DdUNny_XIqVsXsBrDLjarRkLibE3mqYeMqA="/> 
+        <Card style={{ width: '20rem',margin:'10px' }}>
+            <Card.Img variant="top" src={`https://picsum.photos/seed/${book.id}/200/100`}/> 
             {isEdit ? renderedForm() : renderedBook()}
         </Card>
     )

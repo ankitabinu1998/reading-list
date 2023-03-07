@@ -15,12 +15,18 @@ function App() {
     setBooksList([...booksList,book]);
   }
   return (
-    <Container>
-      <Row>
-        <Col lg={12} className="mt-3 mb-3"> <BookList booksList={booksList} setBooksList={setBooksList} /></Col>
-        <Col lg={12}><BookCreate createBook={createBook}/></Col>
-      </Row>
-    </Container>
+    <>
+      <Container>
+        <Row>
+          <Col lg={12} className="mt-3 mb-3"> <BookList booksList={booksList} setBooksList={setBooksList} /></Col>
+        </Row>
+      </Container>
+      <Container fluid>
+        <Row>
+          <Col lg={12}><BookCreate createBook={createBook}/></Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
