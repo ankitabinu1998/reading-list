@@ -10,11 +10,11 @@ export default function BookCreate (props) {
         setTitle('');
     }
     return (
-        <div>
+        <div className="bg-light">
             <h1>Book Create Form</h1>
             <form onSubmit={onBookSubmit}>
                 <Form.Control className="mb-2" type="text" value={title} onChange={(e)=>setTitle(e.target.value)}/>
-                <Button type="submit">Submit</Button>
+                <Button variant='secondary' type="submit">Submit</Button>
             </form>
         </div>
     )

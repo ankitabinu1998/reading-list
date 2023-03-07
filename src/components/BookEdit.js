@@ -13,11 +13,13 @@ export default function BookEdit (props) {
         event.preventDefault();;
         const newBooksList = booksList.map(bookInList => {
             if (bookInList.id === book.id) {
-                bookInList.title = newTitle;
+                return {...bookInList,title:newTitle};
             }
             return bookInList;
         })
-        setBooksList(newBooksList);
+        console.log('newBooksList',newBooksList);
+        console.log('oldBooksList',booksList);
+        // setBooksList(newBooksList);
         setNewTitle('');
         setIsEdit(!isEdit);
     }
@@ -33,7 +35,7 @@ export default function BookEdit (props) {
             {isEdit &&
                 <form onSubmit={onSubmitNewTitle}>
                     <Form.Control className="mb-2 mt-2"  type="text" value={newTitle} onChange={(e)=>setNewTitle(e.target.value)}/>
-                    <Button type="submit">Save</Button>
+                    <Button  variant='secondary' type="submit">Save</Button>
                 </form>
             }
         </div>
