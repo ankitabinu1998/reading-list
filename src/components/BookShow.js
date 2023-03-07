@@ -6,7 +6,7 @@ export default function BookShow (props) {
     const {book, setBooksList, booksList} = props;
     const [isEdit,setIsEdit] = useState(false);
     const onEditBook = () => {
-        setIsEdit(!isEdit);
+        setIsEdit(true);
     }
     const addNewTitle = (newTitle) => {
         const newBooksList = booksList.map(bookInList => {
@@ -16,14 +16,13 @@ export default function BookShow (props) {
             return bookInList;
         })
         setBooksList(newBooksList);
-        setIsEdit(!isEdit);
+        setIsEdit(false);
     }
     const onDeleteBook = () => {
         setBooksList(booksList.filter(bookInList => bookInList.id !== book.id));
-        setIsEdit(false);
     }
     const cancelForm = () => {
-        setIsEdit(!isEdit);
+        setIsEdit(false);
     }
     const renderedBook = () => {
         return (
