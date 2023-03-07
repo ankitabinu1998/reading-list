@@ -9,7 +9,7 @@ export default function BookEdit (props) {
 
     const onSubmitNewTitle = ((event) => {
         event.preventDefault();
-        addNewTitle(newTitle);
+        addNewTitle(newTitle,book);
         setNewTitle('');
     });
 

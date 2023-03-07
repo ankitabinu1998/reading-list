@@ -3,23 +3,17 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useState } from "react";
 export default function BookShow (props) {
-    const {book, setBooksList, booksList} = props;
+     const {updateBook,book, deleteBook} = props;
     const [isEdit,setIsEdit] = useState(false);
     const onEditBook = () => {
         setIsEdit(true);
     }
-    const addNewTitle = (newTitle) => {
-        const newBooksList = booksList.map(bookInList => {
-            if (bookInList.id === book.id) {
-                return {...bookInList,title:newTitle};
-            }
-            return bookInList;
-        })
-        setBooksList(newBooksList);
+    const addNewTitle = (newTitle,book) => {
+        updateBook(newTitle,book);
         setIsEdit(false);
     }
     const onDeleteBook = () => {
-        setBooksList(booksList.filter(bookInList => bookInList.id !== book.id));
+        deleteBook(book);
     }
     const cancelForm = () => {
         setIsEdit(false);
