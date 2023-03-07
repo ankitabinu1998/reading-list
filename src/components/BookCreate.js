@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-export default function BookCreate (props) {
+import BookContext from "../context/books";
+export default function BookCreate () {
+    const {createBook} = useContext(BookContext);
     const [title,setTitle] = useState('');
-    const {createBook} = props;
     const onBookSubmit = (event) => {
         event.preventDefault();
         createBook(title);
