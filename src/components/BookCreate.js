@@ -13,6 +13,7 @@ export default function BookCreate (props) {
         <div className="bg-dark p-3 rounded">
             <h1 className="text-white">Book Create Form</h1>
             <form onSubmit={onBookSubmit}>
+                <Form.Label className="text-white mb-2">Title of book</Form.Label>
                 <Form.Control className="mb-2" type="text" value={title} onChange={(e)=>setTitle(e.target.value)}/>
                 <Button variant='secondary' type="submit">Submit</Button>
             </form>
