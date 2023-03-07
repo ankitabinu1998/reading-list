@@ -22,6 +22,9 @@ export default function BookShow (props) {
         setBooksList(booksList.filter(bookInList => bookInList.id !== book.id));
         setIsEdit(false);
     }
+    const cancelForm = () => {
+        setIsEdit(!isEdit);
+    }
     const renderedBook = () => {
         return (
             <Card.Body className='d-flex justify-content-between'>
@@ -36,7 +39,7 @@ export default function BookShow (props) {
     const renderedForm = () => {
         return (
             <Card.Body>
-            <BookEdit book={book} addNewTitle={addNewTitle}/>
+            <BookEdit book={book} addNewTitle={addNewTitle} cancelForm={cancelForm}/>
             </Card.Body>
             )
     }
