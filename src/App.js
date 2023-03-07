@@ -29,16 +29,16 @@ function App() {
 
   const updateBook = async (newTitle,book) => {
     try {
-      await axios.put((`http://localhost:3001/books/${book.id}`),{
+      const response = await axios.put((`http://localhost:3001/books/${book.id}`),{
         title: newTitle
       });
       const newBooksList = booksList.map(bookInList => {
         if (bookInList.id === book.id) {
-            return {...bookInList,title:newTitle};
+            return {...response.data};
         }
         return bookInList;
     })
-     setBooksList(newBooksList);
+      setBooksList(newBooksList);
     } catch (e) {
       toggleErrorMsg(`Updating book failed: ${e.message}`);
     }
