@@ -1,10 +1,11 @@
 import BookEdit from './BookEdit'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { useContext, useState } from "react";
-import BookContext from '../context/books';
+import { useState } from "react";
+import useBooksContext from '../hooks/useBooksContext';
+
 export default function BookShow (props) {
-    const {deleteBook,updateBook} = useContext(BookContext);
+    const {deleteBook,updateBook} = useBooksContext();
      const {book} = props;
     const [isEdit,setIsEdit] = useState(false);
     const onEditBook = () => {
